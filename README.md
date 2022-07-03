@@ -52,3 +52,8 @@ If you want to do all (make clean, make and make test), just do this
 ```
 $ make all
 ```
+I added a Linux executable/binaries for the ToyRobotApp and ToyRobotTest in case you don't want to build the code in Linux
+```
+$ ./ToyRobotApp
+$ ./ToyRobotTest
+```
