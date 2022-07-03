@@ -4,11 +4,10 @@
 
 using namespace std;
 
-
 Position::Position(const Coordinate& coordinate, const Direction& direction)
     : _coordinate(coordinate), _direction(direction)
 {
-    //cout << "[Position] Initializing coordinates: x = " << _coordinate.getXCoordinate() << ", y = " << _coordinate.getYCoordinate() << endl;
+    
 }
 
 Position::~Position() {

@@ -15,17 +15,16 @@ ToyRobot::~ToyRobot() {
 
 }
 
+// Executes PLACE command
 void ToyRobot::place(const Position& position, Table& table) {
-    //cout << "ToyRobot: PLACE" << endl;
     Coordinate coordinate = position.getCoordinates();
     if (table.isOutOfBounds(coordinate)) {
         return;
     }
     _position.reset(new Position(position));
-    //_position->printPosition();
-    //_position->getDirectionString();
 }
 
+// Executes MOVE command
 void ToyRobot::move(Table& table) {
     if (!_position) {
         cout << "You need to place the robot to the table. Use 'PLACE' command." << endl;
@@ -59,11 +58,9 @@ void ToyRobot::move(Table& table) {
         return;
     }
     _position->setCoordinates(coordinate);
-
-    //_position->printPosition();
-    //_position->getDirectionString();
 }
 
+// Executes LEFT command
 void ToyRobot::rotateLeft() {
     if (!_position) {
         cout << "You need to place the robot to the table. Use 'PLACE' command." << endl;
@@ -88,13 +85,10 @@ void ToyRobot::rotateLeft() {
             cout << "Hey, I'm confused where we are heading to!" << endl; 
             return;
     }
-
     _position->setDirection(direction);
-
-    //_position->printPosition();
-    //_position->getDirectionString();
 }
 
+// Executes RIGHT command
 void ToyRobot::rotateRight() {
     if (!_position) {
         cout << "You need to place the robot to the table. Use 'PLACE' command." << endl;
@@ -121,13 +115,10 @@ void ToyRobot::rotateRight() {
     }
 
     _position->setDirection(direction);
-
-    //_position->printPosition();
-    //_position->getDirectionString();
 }
 
+// Executes REPORT command
 string ToyRobot::report() {
-    //cout << "ToyRobot: REPORT" << endl;
     stringstream report;
     if (!_position) {
         report << "You need to place the robot to the table. Use 'PLACE' command.";

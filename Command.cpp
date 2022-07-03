@@ -19,31 +19,30 @@ Command::~Command() {
 }
 
 bool Command::parseInputCommand (string inputCommand) {
-    // Search if valid command
-    //cout << "PARSING COMMANDS..." << endl;
+    // Go through the list of valid commands and check if the input string
+    // command is one of them. If found, execute the corresponding lambda function
+    // for executing the robot commands
     CommandMap commands = getCommands();
-    //cout << "commands size: " << commands.size() << endl;
-
     for (auto it = commands.begin(); it != commands.end(); it++) {
         regex rgx(it->first, std::regex_constants::icase);
         smatch matched;
         if (it->second && regex_match(inputCommand, matched, rgx)) {
-            //cout << "Found a command: " << it->first << endl;
             it->second(matched);
             return true;
         }
     }
-    //cout << "DID NOT FOUND: " << inputCommand << endl;
     return false;
 }
 
 void Command::registerValidCommands() {
-    //cout << "Registering valid commands..." << endl;
-    // PLACE
+    /*
+     * Register/add all the valid commands necessary for our robot's movement
+     */
+
+    // PLACE command
     _commands.insert(make_pair(
                             "^\\s*(PLACE)\\s([0-9]+),([0-9]+),(NORTH|SOUTH|EAST|WEST)\\s*$", 
                             [&] (const std::smatch & matched) {
-                                //cout << ">>>>>>>>>>>>>>>>>>>>>>>>> PLACE Command" << endl;
                                 /*
                                  * matched[] string token contains:
                                  *      matched[0] = whole command string
@@ -61,7 +60,7 @@ void Command::registerValidCommands() {
                                 // 2. Get direction the robot will face
                                 Direction direction = parseDirectionCommand(matched[4]);
 
-                                // 3. Set position and direction
+                                // 3. Set coordinate and direction
                                 Position position(coordinate, direction);
 
                                 // 4. Execute command
@@ -69,37 +68,34 @@ void Command::registerValidCommands() {
                             }
     ));
 
-    // MOVE
+    // MOVE command
     _commands.insert(make_pair(
                             "^\\s*(MOVE)\\s*$", 
                             [&] (const std::smatch & matched) {
-                                //cout << ">>>>>>>>>>>>>>>>>>>>>>>>> MOVE Command" << endl;
                                 _toyRobot.move(_table);
                             }
     ));
-    // LEFT
+
+    // LEFT command
     _commands.insert(make_pair(
                             "^\\s*(LEFT)\\s*$", 
                             [&] (const std::smatch & matched) {
-                                //cout << ">>>>>>>>>>>>>>>>>>>>>>>>> LEFT Command" << endl;
                                 _toyRobot.rotateLeft();
                             }
     ));
 
-    // RIGHT
+    // RIGHT command
     _commands.insert(make_pair(
                             "^\\s*(RIGHT)\\s*$", 
                             [&] (const std::smatch & matched) {
-                                //cout << ">>>>>>>>>>>>>>>>>>>>>>>>> RIGHT Command" << endl;
                                 _toyRobot.rotateRight();
                             }
     ));
 
-    // REPORT
+    // REPORT command
     _commands.insert(make_pair(
                             "^\\s*(REPORT)\\s*$", 
                             [&] (const std::smatch & matched) {
-                                //cout << ">>>>>>>>>>>>>>>>>>>>>>>>> REPORT Command" << endl;
                                 _toyRobot.report();
                             }
     ));
@@ -107,6 +103,7 @@ void Command::registerValidCommands() {
     // End of map
 }
 
+// Returns the list of available commands for our Toy Robot
 CommandMap Command::getCommands() {
     return _commands;
 }

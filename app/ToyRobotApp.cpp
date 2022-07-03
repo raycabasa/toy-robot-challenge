@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main() {
+int main(int /* argc */, char ** /* argv */) {
     // Create ToyRobot
     ToyRobot toyRobot;
 
@@ -16,14 +16,14 @@ int main() {
     // Create this object for parsing the input command
     Command command(toyRobot, table);
 
-    // Starting enterint commands for the Toy Robot
-    cout << "Enter robot command: " << endl;
+    // Start entering commands for the Toy Robot
+    cout << "Enter robot commands: " << endl;
 
     for(;;) {
         string inputCommand;
         getline(cin, inputCommand);
-        //cout << "Command: " << inputCommand << endl;
         command.parseInputCommand (inputCommand);
     }
+
     return EXIT_SUCCESS;
 }

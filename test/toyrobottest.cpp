@@ -234,7 +234,7 @@ static void testToyRobot() {
     cout << "Done testing Toy Robot... Success!" << endl;
 }
 
-int main() {
+int main(int /* argc */, char ** /* argv */) {
     cout << "Start Toy Robot Challenge unit testing." << endl;
     testCommand();
     testCoordinate();
