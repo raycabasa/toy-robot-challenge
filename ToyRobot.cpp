@@ -1,6 +1,7 @@
 #include "ToyRobot.h"
 
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -125,13 +126,16 @@ void ToyRobot::rotateRight() {
     //_position->getDirectionString();
 }
 
-void ToyRobot::report() {
-    if (!_position) {
-        cout << "You need to place the robot to the table. Use 'PLACE' command." << endl;
-        return;
-    }
+string ToyRobot::report() {
     //cout << "ToyRobot: REPORT" << endl;
-    cout << "Output: " << _position->getCoordinates().getXCoordinate() << "," << _position->getCoordinates().getYCoordinate() << "," << _position->getDirectionString() << endl;
+    stringstream report;
+    if (!_position) {
+        report << "You need to place the robot to the table. Use 'PLACE' command.";
+    } else {
+        report << "Output: " << _position->getCoordinates().getXCoordinate() << "," << _position->getCoordinates().getYCoordinate() << "," << _position->getDirectionString();
+    }
+    cout << report.str() << endl;
+    return report.str();
 }
 
 

@@ -18,7 +18,7 @@ Command::~Command() {
 
 }
 
-void Command::parseInputCommand (string inputCommand) {
+bool Command::parseInputCommand (string inputCommand) {
     // Search if valid command
     //cout << "PARSING COMMANDS..." << endl;
     CommandMap commands = getCommands();
@@ -30,10 +30,11 @@ void Command::parseInputCommand (string inputCommand) {
         if (it->second && regex_match(inputCommand, matched, rgx)) {
             //cout << "Found a command: " << it->first << endl;
             it->second(matched);
-            return;
+            return true;
         }
     }
     //cout << "DID NOT FOUND: " << inputCommand << endl;
+    return false;
 }
 
 void Command::registerValidCommands() {

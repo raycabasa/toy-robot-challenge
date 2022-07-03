@@ -5,8 +5,9 @@ CFLAGS = -g -Wall -std=c++17 -I${HEADERS}
 
 HEADERS := include/
 
-SOURCES := app/ToyRobotApp.cpp \
-		   Command.cpp \
+APP_SOURCE = app/ToyRobotApp.cpp
+
+SOURCES := Command.cpp \
 		   Coordinate.cpp \
 		   Direction.cpp \
 		   Position.cpp \
@@ -14,9 +15,20 @@ SOURCES := app/ToyRobotApp.cpp \
 		   ToyRobot.cpp \
 
 ${TARGET}: ${SOURCES}
-	${CXX} ${CFLAGS} -o ${TARGET} ${SOURCES}
+	${CXX} ${CFLAGS} -o ${TARGET} ${SOURCES} ${APP_SOURCE}
 
-all: clean ${TARGET}
+TEST = ToyRobotTest
+
+TEST_CODES := test/toyrobottest.cpp
+
+${TEST} : ${SOURCES} ${TEST_CODES}
+	${CXX} ${CFLAGS} -o ${TEST} ${SOURCES} ${TEST_CODES}
+
+all: clean ${TARGET} ${TEST}
+
+test: ${TEST}
+	./${TEST}
 
 clean:
-	rm -rf ${TARGET}
+	rm -rf ${TARGET} ${TEST}
+

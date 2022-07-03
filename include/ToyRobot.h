@@ -5,6 +5,7 @@
 #include "Table.h"
 
 #include <memory>
+#include <string>
 
 // ToyRobot Class
 class ToyRobot
@@ -17,7 +18,7 @@ class ToyRobot
         void move(Table& table);
         void rotateLeft();
         void rotateRight();
-        void report();
+        std::string report();
 
     private:
         std::unique_ptr<Position> _position;

@@ -17,7 +17,7 @@ class Command
         Command(ToyRobot& toyRobot, Table& table);
         ~Command();
 
-        void parseInputCommand(std::string inputCommand);
+        bool parseInputCommand(std::string inputCommand);
         void registerValidCommands();
         CommandMap getCommands();
 

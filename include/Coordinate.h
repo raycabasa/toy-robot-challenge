@@ -1,6 +1,8 @@
 #ifndef __COORDINATE_H__
 #define __COORDINATE_H__
 
+#include <string>
+
 class Coordinate
 {
     public:
@@ -16,6 +18,8 @@ class Coordinate
         // Y Coordinate
         void setYCoordinate(int y);
         int getYCoordinate() const;
+
+        std::string toString();
 
     private:
         int _x;

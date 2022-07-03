@@ -17,9 +17,7 @@ class Position
 
         const Coordinate getCoordinates() const;
         const Direction getDirection() const;
-        
-        void printPosition();
-        bool isOutOfBounds();
+
         std::string getDirectionString();
 
     private:

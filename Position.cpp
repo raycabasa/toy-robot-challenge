@@ -31,15 +31,6 @@ const Direction Position::getDirection() const {
     return _direction;
 }
 
-void Position::printPosition() {
-    _coordinate.getXCoordinate();
-    _coordinate.getYCoordinate();
-}
-
-bool Position::isOutOfBounds() {
-    return false;
-}
-
 string Position::getDirectionString() {
     return getDirectionToString(_direction);
 }

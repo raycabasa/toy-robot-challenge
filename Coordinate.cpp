@@ -1,6 +1,7 @@
 #include "Coordinate.h"
 
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -37,4 +38,10 @@ void Coordinate::setYCoordinate(int y) {
 int Coordinate::getYCoordinate() const {
     //cout << "Coordinate class: getYCoordinate: _y = " << _y << endl;
     return _y;
+}
+
+string Coordinate::toString() {
+    stringstream coordinates;
+    coordinates << _x << "," << _y;
+    return coordinates.str();
 }
