@@ -14,6 +14,8 @@ static map<const char *, Direction> directions = {
 };
 
 Direction parseDirectionCommand(string command) {
+    // Transform the command to uppercase because we're letting lowercase in the
+    // input command and we need to convert it to uppercase for the map key value.
     transform(command.begin(), command.end(),command.begin(), ::toupper);
     for(auto it = directions.begin(); it != directions.end(); it++) {
         if (command.compare(it->first) == 0) {

@@ -16,7 +16,7 @@ static void testCommand() {
     Table table(5,5);
     Command command(toyRobot, table);
 
-    cout << endl << "Start unit testing for commands..." << endl;
+    cout << endl << "[Command] Start unit testing..." << endl;
 
     // valid PLACE upper case commands
     assert(command.parseInputCommand("PLACE 0,0,NORTH"));
@@ -84,7 +84,7 @@ static void testCommand() {
 }
 
 static void testCoordinate() {
-    cout << "Start unit testing for coordinates..." << endl;
+    cout << "[Coordinate] Start unit testing..." << endl;
 
     // Compare if the coordinates have the same string value
     assert(Coordinate(0,0).toString() == "0,0");
@@ -97,7 +97,7 @@ static void testCoordinate() {
 }
 
 static void testDirection() {
-    cout << "Start unit testing for directions..." << endl;
+    cout << "[Direction] Start unit testing..." << endl;
 
     // test for the equivalent enum value
     assert (parseDirectionCommand("NORTH") == Direction::NORTH);
@@ -125,7 +125,7 @@ static void testDirection() {
 }
 
 static void testPosition() {
-    cout << "Start unit testing for positions..." << endl;
+    cout << "[Position] Start unit testing..." << endl;
 
     Position position = Position(Coordinate(0,0), Direction::NORTH);
     assert(position.getDirectionString() == "NORTH");
@@ -149,7 +149,7 @@ static void testPosition() {
 }
 
 static void testTable() {
-    cout << "Start unit testing for table..." << endl;
+    cout << "[Table] Start unit testing..." << endl;
     
     Table table(5,5);
     assert(table.getLength() == 5);
@@ -170,7 +170,7 @@ static void testTable() {
 }
 
 static void testToyRobot() {
-    cout << "Start unit testing for table..." << endl;
+    cout << "[ToyRobot] Start unit testing..." << endl;
 
     ToyRobot toyRobot;
     Table table(5,5);
@@ -235,13 +235,13 @@ static void testToyRobot() {
 }
 
 int main(int /* argc */, char ** /* argv */) {
-    cout << "Start Toy Robot Challenge unit testing." << endl;
+    cout << endl << "Start Toy Robot Challenge unit testing." << endl;
     testCommand();
     testCoordinate();
     testDirection();
     testPosition();
     testTable();
     testToyRobot();
-    cout << "Finish Toy Robot Challenge unit testing." << endl;
+    cout << "Finished Toy Robot Challenge unit testing successfully!" << endl;
     return EXIT_SUCCESS;
 }

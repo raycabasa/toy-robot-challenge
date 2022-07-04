@@ -18,7 +18,7 @@ class Position
         const Coordinate getCoordinates() const;
         const Direction getDirection() const;
 
-        std::string getDirectionString();
+        std::string getDirectionString() const;
 
     private:
         Coordinate _coordinate;

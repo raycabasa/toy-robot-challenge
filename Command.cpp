@@ -19,9 +19,11 @@ Command::~Command() {
 }
 
 bool Command::parseInputCommand (string inputCommand) {
-    // Go through the list of valid commands and check if the input string
-    // command is one of them. If found, execute the corresponding lambda function
-    // for executing the robot commands
+    /*
+     * Go through the list of valid commands and check if the input string
+     * command is one of them. If found, execute the corresponding lambda function
+     * for executing the robot commands
+     */
     CommandMap commands = getCommands();
     for (auto it = commands.begin(); it != commands.end(); it++) {
         regex rgx(it->first, std::regex_constants::icase);

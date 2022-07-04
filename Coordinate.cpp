@@ -5,7 +5,9 @@
 
 using namespace std;
 
-Coordinate::Coordinate() {
+Coordinate::Coordinate()
+    : _x(0), _y(0)
+{
 
 }
 
@@ -34,7 +36,7 @@ int Coordinate::getYCoordinate() const {
     return _y;
 }
 
-string Coordinate::toString() {
+string Coordinate::toString() const {
     stringstream coordinates;
     coordinates << _x << "," << _y;
     return coordinates.str();

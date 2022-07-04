@@ -19,7 +19,7 @@ class Coordinate
         void setYCoordinate(int y);
         int getYCoordinate() const;
 
-        std::string toString();
+        std::string toString() const;
 
     private:
         int _x;

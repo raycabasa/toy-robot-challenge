@@ -21,6 +21,7 @@ int main(int /* argc */, char ** /* argv */) {
 
     for(;;) {
         string inputCommand;
+        // Wait for input commands from the command line
         getline(cin, inputCommand);
         command.parseInputCommand (inputCommand);
     }

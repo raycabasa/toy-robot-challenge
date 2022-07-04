@@ -9,6 +9,10 @@
 #include <regex>
 #include <string>
 
+/* 
+ * Need to typedef this so that we won't have to type this very long line whenever
+ * we will use it.
+ */
 typedef std::unordered_map<std::string, std::function<void(const std::smatch & matched)>> CommandMap;
 
 class Command

@@ -9,15 +9,15 @@ Table::~Table() {
     
 }
 
-int Table::getLength() {
+int Table::getLength() const {
     return _length;
 }
 
-int Table::getWidth() {
+int Table::getWidth() const {
     return _width;
 }
 
-bool Table::isOutOfBounds(Coordinate & coordinate) {
+bool Table::isOutOfBounds(const Coordinate & coordinate) {
     return (coordinate.getXCoordinate() < 0 ||
             coordinate.getYCoordinate() < 0 ||
             coordinate.getXCoordinate() > getLength() ||

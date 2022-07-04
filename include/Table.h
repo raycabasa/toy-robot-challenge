@@ -9,9 +9,9 @@ class Table
         Table(int length, int width);
         ~Table();
 
-        int getLength();
-        int getWidth();
-        bool isOutOfBounds(Coordinate & coordinate);
+        int getLength() const;
+        int getWidth() const;
+        bool isOutOfBounds(const Coordinate & coordinate);
 
     private:
         int _length;

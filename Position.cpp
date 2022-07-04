@@ -1,7 +1,5 @@
 #include "Position.h"
 
-#include <iostream>
-
 using namespace std;
 
 Position::Position(const Coordinate& coordinate, const Direction& direction)
@@ -30,6 +28,6 @@ const Direction Position::getDirection() const {
     return _direction;
 }
 
-string Position::getDirectionString() {
+string Position::getDirectionString() const {
     return getDirectionToString(_direction);
 }

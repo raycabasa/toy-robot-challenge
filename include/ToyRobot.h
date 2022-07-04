@@ -7,7 +7,6 @@
 #include <memory>
 #include <string>
 
-// ToyRobot Class
 class ToyRobot
 {
     public:
