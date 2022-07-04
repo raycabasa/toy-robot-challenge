@@ -20,6 +20,6 @@ int Table::getWidth() const {
 bool Table::isOutOfBounds(const Coordinate & coordinate) {
     return (coordinate.getXCoordinate() < 0 ||
             coordinate.getYCoordinate() < 0 ||
-            coordinate.getXCoordinate() > getLength() ||
-            coordinate.getYCoordinate() > getWidth());
+            coordinate.getXCoordinate() >= getLength() ||
+            coordinate.getYCoordinate() >= getWidth());
 }

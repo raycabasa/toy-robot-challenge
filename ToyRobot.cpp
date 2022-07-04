@@ -29,7 +29,7 @@ void ToyRobot::place(const Position& position, Table& table) {
 // Executes MOVE command
 void ToyRobot::move(Table& table) {
     if (!_position) {
-        cout << "You need to place the robot to the table. Use 'PLACE' command." << endl;
+        cout << "You need to place the robot correctly to the table first. Use 'PLACE' command." << endl;
         return;
     }
     int x = _position->getCoordinates().getXCoordinate();
@@ -75,7 +75,7 @@ void ToyRobot::move(Table& table) {
 // Executes LEFT command
 void ToyRobot::rotateLeft() {
     if (!_position) {
-        cout << "You need to place the robot to the table. Use 'PLACE' command." << endl;
+        cout << "You need to place the robot correctly to the table first. Use 'PLACE' command." << endl;
         return;
     }
 
@@ -106,7 +106,7 @@ void ToyRobot::rotateLeft() {
 // Executes RIGHT command
 void ToyRobot::rotateRight() {
     if (!_position) {
-        cout << "You need to place the robot to the table. Use 'PLACE' command." << endl;
+        cout << "You need to place the robot correctly to the table first. Use 'PLACE' command." << endl;
         return;
     }
 
@@ -138,7 +138,7 @@ void ToyRobot::rotateRight() {
 string ToyRobot::report() {
     stringstream report;
     if (!_position) {
-        report << "You need to place the robot to the table. Use 'PLACE' command.";
+        report << "You need to place the robot correctly to the table first. Use 'PLACE' command.";
     } else {
         report << "Output: " << _position->getCoordinates().getXCoordinate() << "," << _position->getCoordinates().getYCoordinate() << "," << _position->getDirectionString();
     }

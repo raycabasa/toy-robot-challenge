@@ -179,7 +179,7 @@ static void testToyRobot() {
     toyRobot.move(table);
     toyRobot.rotateLeft();
     toyRobot.rotateRight();
-    assert(toyRobot.report() == "You need to place the robot to the table. Use 'PLACE' command.");
+    assert(toyRobot.report() == "You need to place the robot correctly to the table first. Use 'PLACE' command.");
 
     // test PLACE command
     Position position1(Coordinate(0,0), Direction::NORTH);
@@ -210,12 +210,12 @@ static void testToyRobot() {
     // test out of bounds move
     // This is way beyond the edge of the table, robot should not fall.
     toyRobot.move(table);
-    assert(toyRobot.report() == "Output: 3,5,NORTH");
+    assert(toyRobot.report() == "Output: 3,4,NORTH");
     toyRobot.rotateRight();
     toyRobot.move(table);
     toyRobot.move(table);
     toyRobot.move(table);
-    assert(toyRobot.report() == "Output: 5,5,EAST");
+    assert(toyRobot.report() == "Output: 4,4,EAST");
 
     // Place back to origin (0,0) but facing WEST
     Position position2(Coordinate(0,0), Direction::WEST);
